@@ -11,7 +11,7 @@ export default function NoiseOverlay() {
     setIsMounted(true);
   }, []);
 
-  if (capability === 'low' || !isMounted) return null;
+  if (!isMounted || capability === 'low') return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-40 h-full w-full opacity-[var(--noise-opacity)] mix-blend-overlay">

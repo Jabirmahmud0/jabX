@@ -1,11 +1,16 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function GoogleAnalytics() {
   const { trackEvent } = useAnalytics();
   const trackedDepths = useRef(new Set());
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Inject GA4 Script — async deferred for LCP safety
   useEffect(() => {
@@ -54,6 +59,8 @@ export default function GoogleAnalytics() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [trackEvent]);
+
+  if (!isMounted) return null;
 
   return null;
 }

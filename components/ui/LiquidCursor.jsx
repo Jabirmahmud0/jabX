@@ -7,7 +7,12 @@ import { useDeviceCapability } from '../../hooks/useDeviceCapability';
 export default function LiquidCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const capability = useDeviceCapability();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (capability === 'low') return;
@@ -33,7 +38,7 @@ export default function LiquidCursor() {
     };
   }, [capability]);
 
-  if (capability === 'low') return null;
+  if (!isMounted || capability === 'low') return null;
 
   return (
     <>

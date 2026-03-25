@@ -93,10 +93,11 @@ export default function About() {
               >
                 <div className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500 rounded-2xl overflow-hidden relative">
                   <Image
-                    src="/assets/images/jabir.webp"
+                    src="/jabx.png"
                     alt="Jabir Mahmud — UI/UX designer and creative developer"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
                     className="object-cover"
                   />
                   {/* Fallback pattern if image is missing */}
