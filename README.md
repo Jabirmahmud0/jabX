@@ -22,7 +22,6 @@ Built with **Next.js 16.2** and **React 19**, this project implements state-of-t
 - 🧊 **3D Interactions**: Seamlessly integrated 3D elements powered by React Three Fiber and Drei.
 - 📜 **Smooth Scroll**: Tactile scrolling experience using Lenis for refined navigability.
 - ⚡ **Next.js App Router**: Optimized performance, SEO-friendly architecture, and advanced routing.
-- 🤖 **AI Studio Integration**: Ready for seamless deployment and interaction with Gemini AI.
 - 📧 **Direct Contact**: Integrated contact system via EmailJS for real-time lead generation.
 - 📱 **Fully Responsive**: Optimized for every device, from high-end desktops to mobile screens.
 
