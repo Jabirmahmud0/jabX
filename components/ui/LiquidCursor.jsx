@@ -12,10 +12,16 @@ export default function LiquidCursor() {
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    // Only apply the 'no cursor' class on desktop (devices with a fine pointer)
+    const isDesktop = window.matchMedia('(pointer: fine)').matches;
+    if (capability !== 'low' && isDesktop) {
+      document.documentElement.classList.add('has-custom-cursor');
+      return () => document.documentElement.classList.remove('has-custom-cursor');
+    }
+  }, [capability]);
 
   useEffect(() => {
-    if (capability === 'low') return;
+    if (!isMounted) return;
 
     const updateMousePosition = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -36,14 +42,16 @@ export default function LiquidCursor() {
       window.removeEventListener('mousemove', updateMousePosition);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [capability]);
+  }, [isMounted]);
 
-  if (!isMounted || capability === 'low') return null;
+  // We render the custom cursor if mounted, but the native cursor 
+  // hiding (CSS class) only applies if capability is not 'low'.
+  if (!isMounted) return null;
 
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-accent-cyan rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-accent-cyan rounded-full pointer-events-none z-[9999] mix-blend-difference"
         animate={{
           x: mousePosition.x - 3,
           y: mousePosition.y - 3,
@@ -51,7 +59,7 @@ export default function LiquidCursor() {
         transition={{ type: 'tween', ease: 'backOut', duration: 0.1 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-accent-cyan rounded-full pointer-events-none z-50 mix-blend-difference flex items-center justify-center"
+        className="fixed top-0 left-0 w-10 h-10 border border-accent-cyan rounded-full pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center"
         animate={{
           x: mousePosition.x - 20,
           y: mousePosition.y - 20,

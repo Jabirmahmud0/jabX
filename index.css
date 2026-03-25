@@ -96,98 +96,16 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--text-muted);
 }
 
-:root {
-  /* Dark Mode (default) */
-  --bg-primary: #050505;
-  --bg-secondary: #0D0D0D;
-  --bg-card: #111111;
-  --text-primary: #FFFFFF;
-  --text-secondary: #A0A0A0;
-  --text-muted: #555555;
-  --accent-cyan: #00F5D4;
-  --accent-violet: #7B61FF;
-  --accent-gradient: linear-gradient(135deg, #00F5D4, #7B61FF);
-  --border-subtle: rgba(255,255,255,0.06);
-  --border-glow: rgba(0,245,212,0.3);
-  --glass-bg: rgba(255,255,255,0.03);
-  --glass-border: rgba(255,255,255,0.08);
-  --noise-opacity: 0.035;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Outfit', sans-serif;
-
-  --text-hero:    clamp(3.5rem, 8vw, 7rem);
-  --text-h1:      clamp(2.5rem, 5vw, 4.5rem);
-  --text-h2:      clamp(1.8rem, 3.5vw, 3rem);
-  --text-h3:      clamp(1.2rem, 2vw, 1.8rem);
-  --text-body:    clamp(0.95rem, 1.5vw, 1.1rem);
-  --text-caption: 0.8rem;
-
-  --weight-black:   900;
-  --weight-bold:    700;
-  --weight-medium:  500;
-  --weight-regular: 400;
-}
-
-[data-theme="light"] {
-  --bg-primary: #F8F8F8;
-  --bg-secondary: #FFFFFF;
-  --bg-card: #EFEFEF;
-  --text-primary: #080808;
-  --text-secondary: #444444;
-  --text-muted: #888888;
-  --accent-cyan: #00C4AA;
-  --accent-violet: #6A4FE8;
-  --border-subtle: rgba(0,0,0,0.06);
-  --glass-bg: rgba(0,0,0,0.03);
-  --glass-border: rgba(0,0,0,0.08);
-  --noise-opacity: 0.02;
-}
-
-@theme {
-  --font-sans: var(--font-body);
-  --font-display: var(--font-display);
-  --color-bg-primary: var(--bg-primary);
-  --color-bg-secondary: var(--bg-secondary);
-  --color-bg-card: var(--bg-card);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-accent-cyan: var(--accent-cyan);
-  --color-accent-violet: var(--accent-violet);
-  --color-border-subtle: var(--border-subtle);
-  --color-glass-bg: var(--glass-bg);
-  --color-glass-border: var(--glass-border);
-}
-
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-}
-
-::selection {
-  background-color: var(--accent-cyan);
-  color: #000;
-}
-
-/* Hide scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+/* Custom Cursor Hiding — only active on desktop when LiquidCursor is active */
+@media (pointer: fine) {
+  .has-custom-cursor {
+    cursor: none !important;
+  }
+  .has-custom-cursor a,
+  .has-custom-cursor button,
+  .has-custom-cursor input,
+  .has-custom-cursor textarea {
+    cursor: none !important;
+  }
 }
