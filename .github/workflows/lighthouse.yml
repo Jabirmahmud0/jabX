@@ -19,7 +19,7 @@ jobs:
           cache: 'npm'
           
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         
       - name: Build Next.js project
         run: npm run build
@@ -30,7 +30,9 @@ jobs:
           NEXT_PUBLIC_GA_ID: CI_STUB
           
       - name: Run Lighthouse CI
-        run: npx @lhci/cli autorun
+        run: |
+          npx @lhci/cli healthcheck
+          npx @lhci/cli autorun
         env:
           LHCI_OUTPUT_DIR: ./lhci_reports
           LHCI_BUILD_CONTEXT__BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
