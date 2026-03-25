@@ -1,0 +1,38 @@
+export const SERVICES = [
+  {
+    id: 1,
+    icon: 'RiPenNibLine',
+    title: 'UI/UX Design Systems',
+    description: 'From wireframe to polished design system. Figma-first, developer-handoff-ready. Designed for conversion, not aesthetics alone.',
+    deliverables: ['Design System', 'Figma File', 'Component Library'],
+    price: 'Starting at $299',
+    tag: 'Most Popular',
+  },
+  {
+    id: 2,
+    icon: 'RiCodeSSlashLine',
+    title: 'Frontend Development',
+    description: 'React + Next.js + Tailwind. Pixel-perfect implementation with 90+ Lighthouse scores. Animation-rich, performant, production-deployed.',
+    deliverables: ['React App', 'Deployed Build', 'Source Code'],
+    price: 'Starting at $499',
+    tag: null,
+  },
+  {
+    id: 3,
+    icon: 'RiBrainLine',
+    title: 'AI Tool Development',
+    description: 'Custom AI-powered apps — chatbots, content tools, automation dashboards. Built with LLM APIs and wrapped in clean interfaces.',
+    deliverables: ['Working AI App', 'API Integration', 'UI Interface'],
+    price: 'Starting at $799',
+    tag: 'High Demand',
+  },
+  {
+    id: 4,
+    icon: 'RiRocketLine',
+    title: 'Full Product Build',
+    description: 'End-to-end product execution. Design + Dev + AI. From idea to deployed, client-ready product. Best for serious founders.',
+    deliverables: ['Full Product', 'Design + Code + Deploy'],
+    price: 'Starting at $1,499',
+    tag: 'Best Value',
+  },
+];

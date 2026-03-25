@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* 
+   THEME CORE
+   Using explicit attribute selectors to ensure manual toggle wins.
+   Specificity: [data-theme] matches on the <html> tag.
+*/
+
+:root {
+  /* Common variables */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --text-hero: clamp(3.5rem, 8vw, 7rem);
+  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h2: clamp(1.8rem, 3.5vw, 3rem);
+  --text-h3: clamp(1.2rem, 2vw, 1.8rem);
+  --text-body: clamp(0.95rem, 1.5vw, 1.1rem);
+  --text-caption: 0.8rem;
+  --weight-black: 900;
+  --weight-bold: 700;
+  --weight-medium: 500;
+  --weight-regular: 400;
+  
+  /* Initial default values (Dark) */
+  --bg-primary: #050505;
+  --bg-secondary: #0D0D0D;
+  --bg-card: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --text-muted: #555555;
+  --accent-cyan: #00F5D4;
+  --accent-violet: #7B61FF;
+  --accent-gradient: linear-gradient(135deg, #00F5D4, #7B61FF);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-glow: rgba(0,245,212,0.3);
+  --glass-bg: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.08);
+  --noise-opacity: 0.035;
+}
+
+/* Explicit DARK theme */
+[data-theme="dark"] {
+  --bg-primary: #050505;
+  --bg-secondary: #0D0D0D;
+  --bg-card: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --accent-cyan: #00F5D4;
+  --accent-violet: #7B61FF;
+  --border-subtle: rgba(255,255,255,0.06);
+  --glass-bg: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.08);
+  --noise-opacity: 0.035;
+}
+
+/* Explicit LIGHT theme */
+[data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F8F8;
+  --bg-card: #EFEFEF;
+  --text-primary: #080808;
+  --text-secondary: #444444;
+  --text-muted: #888888;
+  --accent-cyan: #00C4AA;
+  --accent-violet: #6A4FE8;
+  --accent-gradient: linear-gradient(135deg, #00C4AA, #6A4FE8);
+  --border-subtle: rgba(0,0,0,0.06);
+  --border-glow: rgba(0,196,170,0.2);
+  --glass-bg: rgba(0,0,0,0.02);
+  --glass-border: rgba(0,0,0,0.06);
+  --noise-opacity: 0.015;
+}
+
+@theme {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-violet: var(--accent-violet);
+  --color-border-subtle: var(--border-subtle);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background-color: var(--accent-cyan);
+  color: #000;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════
+   HERO SECTION — Effects & Visuals
+   ═══════════════════════════════════════════════════ */
+
+/* Animated gradient mesh orbs */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.hero-orb--cyan {
+  width: clamp(400px, 50vw, 800px);
+  height: clamp(400px, 50vw, 800px);
+  background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+  opacity: 0.15;
+  top: -10%;
+  right: -15%;
+  animation: orbFloat1 18s ease-in-out infinite, orbPulse 8s ease-in-out infinite;
+}
+
+.hero-orb--violet {
+  width: clamp(350px, 45vw, 700px);
+  height: clamp(350px, 45vw, 700px);
+  background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%);
+  opacity: 0.12;
+  bottom: -20%;
+  left: -10%;
+  animation: orbFloat2 22s ease-in-out infinite, orbPulse 10s ease-in-out infinite 2s;
+}
+
+[data-theme="light"] .hero-orb--cyan { opacity: 0.08; }
+[data-theme="light"] .hero-orb--violet { opacity: 0.06; }
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-40px, 30px) scale(1.05); }
+  50% { transform: translate(20px, -50px) scale(0.95); }
+  75% { transform: translate(50px, 20px) scale(1.02); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -30px) scale(1.08); }
+  66% { transform: translate(-30px, 40px) scale(0.92); }
+}
+
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.2; }
+}
+
+/* Glassmorphism V2 */
+.hero-card-v2 {
+  background: var(--glass-bg);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-card-v2:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 60px -15px rgba(0, 245, 212, 0.2);
+}
+
+.hero-bottom-glow {
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 60vh;
+  background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+  opacity: 0.15;
+  filter: blur(80px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+[data-theme="light"] .hero-bottom-glow {
+  opacity: 0.1;
+}
+
+/* Buttons */
+.hero-pill-button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 9999px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.hero-pill-button--primary {
+  background-color: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2) !important;
+}
+
+.hero-pill-button--secondary {
+  background-color: var(--glass-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+[data-theme="light"] .hero-pill-button--primary {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}

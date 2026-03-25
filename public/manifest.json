@@ -1,0 +1,25 @@
+{
+  "name": "Jabir Mahmud — Creative Developer | jabx_fx",
+  "short_name": "jabx_fx",
+  "description": "Jabir Mahmud is a creative developer building high-performance React apps, AI-powered tools, and conversion-focused design systems. Available globally.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#00F5D4",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "technology", "design"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
