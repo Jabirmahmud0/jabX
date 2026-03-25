@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-          
+
       - name: Install dependencies
         run: npm install
-        
+
       - name: Build Next.js project
         run: npm run build
         env:
@@ -28,7 +28,7 @@ jobs:
           NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: CI_STUB
           NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: CI_STUB
           NEXT_PUBLIC_GA_ID: CI_STUB
-          
+
       - name: Run Lighthouse CI
         run: |
           npx @lhci/cli healthcheck
