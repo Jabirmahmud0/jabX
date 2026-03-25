@@ -55,9 +55,16 @@ export default function Contact() {
     setStatus('loading');
 
     const cleanData = {
+      // Standard EmailJS variables
+      from_name: formData.name.replace(/<[^>]*>/g, '').trim(),
+      from_email: formData.email.trim().toLowerCase(),
+      reply_to: formData.email.trim().toLowerCase(),
+      
+      // Custom template variables (matching exact names or snake_case)
       name: formData.name.replace(/<[^>]*>/g, '').trim(),
       email: formData.email.trim().toLowerCase(),
       projectType: formData.projectType,
+      project_type: formData.projectType,
       budget: formData.budget,
       message: formData.message.replace(/<[^>]*>/g, '').trim(),
     };

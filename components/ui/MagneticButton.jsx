@@ -10,7 +10,7 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-export default function MagneticButton({ children, className, onClick, variant = 'primary', ...props }) {
+export default function MagneticButton({ children, className, onClick, variant = 'primary', as = 'button', ...props }) {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const capability = useDeviceCapability();
@@ -33,30 +33,39 @@ export default function MagneticButton({ children, className, onClick, variant =
     secondary: 'bg-transparent text-text-primary border border-border-subtle hover:border-accent-cyan/50 hover:bg-glass-bg',
   };
 
+  const Component = as === 'div' ? motion.div : motion.button;
+
+  const componentProps = as === 'button' ? {
+    type: props.type || 'button',
+    ...props
+  } : {
+    role: "button",
+    tabIndex: 0,
+    onKeyDown: (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        onClick?.(e);
+      }
+    },
+    ...props
+  };
+
   return (
-    <motion.div
+    <Component
       ref={ref}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
       className={cn(
-        'relative px-8 py-4 rounded-full font-medium tracking-wide overflow-hidden transition-colors duration-300 cursor-pointer select-none',
+        'relative flex justify-center items-center px-8 py-4 rounded-full font-medium tracking-wide overflow-hidden transition-colors duration-300 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan',
         variants[variant],
         className
       )}
       onClick={onClick}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onClick?.(e);
-        }
-      }}
-      role="button"
-      tabIndex={0}
-      {...props}
+      {...componentProps}
     >
       <span className="relative z-10 flex items-center gap-2 pointer-events-none">{children}</span>
-    </motion.div>
+    </Component>
   );
 }
