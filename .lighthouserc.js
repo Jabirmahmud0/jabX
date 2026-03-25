@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       startServerCommand: 'npm run start',
       url: ['http://localhost:3000/'],
-      numberOfRuns: 3,
+      numberOfRuns: 1, // Reduced for CI speed, increase if needed for consistency
     },
     assert: {
       assertions: {

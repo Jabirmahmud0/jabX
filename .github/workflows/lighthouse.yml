@@ -23,7 +23,12 @@ jobs:
         
       - name: Build Next.js project
         run: npm run build
-        
+        env:
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: CI_STUB
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: CI_STUB
+          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: CI_STUB
+          NEXT_PUBLIC_GA_ID: CI_STUB
+          
       - name: Run Lighthouse CI
         run: |
           npm install -g @lhci/cli
@@ -31,3 +36,7 @@ jobs:
         env:
           LHCI_OUTPUT_DIR: ./lhci_reports
           LHCI_BUILD_CONTEXT__BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: CI_STUB
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: CI_STUB
+          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: CI_STUB
+          NEXT_PUBLIC_GA_ID: CI_STUB
