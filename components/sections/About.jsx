@@ -91,7 +91,7 @@ export default function About() {
                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                 className="w-full h-full relative"
               >
-                <div className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500 rounded-2xl overflow-hidden relative">
+                <div className="w-full h-full md:grayscale md:hover:grayscale-0 transition-all duration-500 rounded-2xl overflow-hidden relative">
                   <Image
                     src="/jabx.png"
                     alt="Jabir Mahmud — UI/UX designer and creative developer"
