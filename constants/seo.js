@@ -1,6 +1,6 @@
 export const SEO = {
   siteName: 'jabx_fx',
-  siteUrl:  'https://jabx.pro.bd',
+  siteUrl:  'https://jabx.bro.bd',
   author:   'Jabir Mahmud',
 
   title:       'Jabir Mahmud — Creative Developer | UI/UX · AI Tools · jabx_fx',
