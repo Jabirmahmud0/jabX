@@ -150,7 +150,7 @@ export default function Hero() {
     return () => cancelAnimationFrame(raf);
   }, [currentProject, advance]);
 
-  const title = "Engaging experiences, built with precision.";
+  const title = "High-converting websites for growth brands.";
   const words = title.split(" ");
 
   const y1 = useTransform(scrollY, [0, 500], [0, 100]);
@@ -231,9 +231,7 @@ export default function Hero() {
               transition={{ duration: 0.85, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg md:text-xl text-text-secondary font-body leading-relaxed opacity-80"
             >
-              I'm Jabir — a creative developer who builds performant, secure, 
-              and visually stunning digital products. From AI-powered SaaS 
-              to interactive Web3 experiences.
+              JABX is a specialized web development agency in Bangladesh. We build fast, responsive, and high-performance websites carefully engineered to drive scaling sales and measurable results.
             </motion.p>
           </div>
 

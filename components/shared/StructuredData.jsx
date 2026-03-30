@@ -5,6 +5,23 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": `${SEO.siteUrl}/#organization`,
+        "name": "JABX",
+        "url": SEO.siteUrl,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${SEO.siteUrl}/icon.png`,
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          SEO.github,
+          SEO.linkedIn,
+          `https://twitter.com/${SEO.twitterHandle.replace('@', '')}`,
+        ]
+      },
+      {
         "@type": "Person",
         "@id": `${SEO.siteUrl}/#person`,
         "name": SEO.author,
@@ -30,9 +47,9 @@ export default function StructuredData() {
         "@type": "WebSite",
         "@id": `${SEO.siteUrl}/#website`,
         "url": SEO.siteUrl,
-        "name": `${SEO.siteName} — ${SEO.author}`,
-        "description": "Creative developer portfolio — UI/UX, AI Tools, React development.",
-        "publisher": { "@id": `${SEO.siteUrl}/#person` },
+        "name": "JABX — Web Development Agency",
+        "description": "JABX builds fast, modern, high-converting websites and landing pages for brands that want growth.",
+        "publisher": { "@id": `${SEO.siteUrl}/#organization` },
         "inLanguage": "en-US",
         "potentialAction": {
           "@type": "SearchAction",

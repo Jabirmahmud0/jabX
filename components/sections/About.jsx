@@ -41,7 +41,7 @@ export default function About() {
               variants={lineReveal}
               className="text-[length:var(--text-h2)] font-display font-bold mb-8 leading-tight"
             >
-              I don't just build things. I build things that work.
+              Digital products engineered for measurable business growth.
             </motion.h2>
 
             <motion.div
@@ -53,10 +53,10 @@ export default function About() {
               className="space-y-6 text-text-secondary text-lg"
             >
               <p>
-                I'm Jabir &mdash; a creative developer who operates at the intersection of design, engineering, and AI. I build interfaces that are fast, intentional, and built to convert.
+                We help ambitious founders, tech startups, and marketing teams who need their websites to perform aggressively better online. We specialize in custom web development that directly serves your business goals.
               </p>
               <p>
-                From production React apps to AI-powered tools and pixel-perfect UI systems &mdash; I treat every project as a product problem. My edge is the full stack: design thinking + development execution + AI integration.
+                As a performance-focused Web Development Agency, we deliver exceptional UI/UX, flawless React architectures, and advanced technical SEO out-of-the-box. We don't just write code; we construct digital assets.
               </p>
             </motion.div>
 

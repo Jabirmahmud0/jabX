@@ -1,17 +1,17 @@
 export const SEO = {
-  siteName: 'jabx_fx',
+  siteName: 'JABX',
   siteUrl:  'https://jabx.pro.bd',
   author:   'Jabir Mahmud',
 
-  title:       'Jabir Mahmud — Creative Developer | UI/UX · AI Tools · jabx_fx',
-  titleTemplate: '%s | jabx_fx',
-  description: 'Jabir Mahmud is a creative developer building high-performance React apps, AI-powered tools, and conversion-focused design systems. Available globally.',
+  title:       'JABX — Web Development Agency in Bangladesh',
+  titleTemplate: '%s | JABX',
+  description: 'JABX builds fast, modern, high-converting websites and landing pages for brands that want growth.',
 
   ogImage:  'https://jabx.pro.bd/og-image.jpg',
   locale:   'en_US',
 
   keywords: [
-    'freelance React developer',
+    'web development agency Bangladesh',
     'hire frontend developer',
     'UI UX designer for hire',
     'AI tools developer',
