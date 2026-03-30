@@ -86,7 +86,7 @@ export default async function OGImage() {
             fontWeight: 400,
           }}
         >
-          Design · Dev · AI — jabx.bro.bd
+          Design · Dev · AI — jabx.pro.bd
         </p>
 
         {/* Bottom badge */}
